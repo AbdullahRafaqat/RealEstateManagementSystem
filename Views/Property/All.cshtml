@@ -1,0 +1,162 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<RealEstate.extModals.newPropModal>
+@{
+    ViewBag.Title = "All";
+    Layout = "~/Views/Shared/_LayoutPage3.cshtml";
+}
+
+<!-- SUB BANNER -->
+<section class="section-sub-banner bg-9">
+    <div class="sub-banner">
+        <div class="container">
+            <div class="text text-center">
+                <h2>Properties</h2>
+                <p>All Uploaded Properties</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- END / SUB BANNER -->
+<!-- RESTAURANTS -->
+<section class="section-restaurant-2 bg-white">
+    <div class="container">
+
+        <div class="restaurant-small">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="restaurant_content">
+                        <!-- HEADING -->
+                        <div class="restaurant_title">
+                            @*<h2 class="heading">All Registered Agents in Sweden</h2>*@
+                            @*<span class="time">11h00 Am - 2h00 Pm</span>*@
+                        </div>
+                        <!-- END / HEADING -->
+                        <!-- ITEM -->
+                        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>For</th>
+                                    <th>Price</th>
+                                    <th>City</th>
+                                    <th>Address</th>
+                                    <th>Created Date</th>
+                                    <th>Active</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>For</th>
+                                    <th>Price</th>
+                                    <th>City</th>
+                                    <th>Address</th>
+                                    <th>Created Date</th>
+                                    <th>Active</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </tfoot>
+                            <tbody id="tablebody">
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @*<a href="~/Prope/@item.ProID">@item.propName</a>*@
+                                            <a href="@Url.Action("PropertyDetail", new { id = item.ProID})">@item.propName</a>
+                                        </td>
+                                        <td>
+                                            @item.PropFor
+                                        </td>
+                                        <td>
+                                            @item.Price
+                                        </td>
+                                        <td>
+                                            @item.PropCity
+                                        </td>
+                                        <td>
+                                            @item.Address
+                                        </td>
+                                        <td>
+                                            @item.CreatedDate.Value.ToShortDateString()
+                                        </td>
+                                        @{bool? acti = item.Status; }
+                                        @*<div>fasddfs</div>*@
+                                        @if (@acti == true)
+                                        {
+                                        <td>
+                                           @{ var list = new SelectList(new[]
+                                         {
+                                            new {ID="1", Name="Yes"},
+                                            new {ID="0", Name="No"},
+                                            }, "ID", "Name", 1);
+                                           }
+                                            <div class="form-group">
+                                                @Html.DropDownList(item.ProID.ToString(), list, new { @class = "form-control", @id = item.ProID, onchange = "SaveData('" + item.ProID + "')" })                                               
+                                            </div>
+                                        </td>
+                                        }
+                                        else
+                                        {
+                                        <td>
+                                            @{ var list2 = new SelectList(new[]{new {ID="1", Name="Yes"},new {ID="0", Name="No"},}, "ID", "Name", 0);}
+                                            <div class="form-group">
+                                                @Html.DropDownList(item.ProID.ToString(), list2, new { @class = "form-control", @id = item.ProID, onchange = "SaveData('" + item.ProID + "')" })
+                                            </div>
+                                        </td>
+                                        }
+                                       <td>
+                                        @*@Html.ActionLink("link text", "someaction", "somecontroller", new { id = ,@class="btn btn-success" })*@
+                                           <a href="@Url.Action("Edit", new { id = item.ProID})" class="btn btn-primary" >Edit</a>
+                                       </td>
+                                    </tr>
+                                }
+                            </tbody>
+
+                        </table>
+                        <!-- END / ITEM -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center; width:100%;">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("All", new { page }))
+        </div>
+    </div>
+</section>
+<!-- END / RESTAURANTS -->
+<link href="~/Content/iziToast.min.css" rel="stylesheet" />
+<script src="~/js/iziToast.min.js"></script>
+<script type="text/javascript" src="~/js/lib/jquery-1.11.0.min.js"></script>
+<script>
+    function SaveData(guid) {      
+        var valu = $("#" + guid).val();
+        //var valu = $("#"+guid).find("option:selected").val();       
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("SaveActivation")",
+            data: { 'id': guid, 'selctedvalue': valu },
+            dataType: 'html',
+            success: function (data) {               
+                iziToast.success({
+                    title: 'OK',
+                    message: 'Your Property Status Successfully Changed',
+                });
+            },
+            error: function () {
+                iziToast.error({
+                    title: 'Error',
+                    message: 'Illegal operation',
+                });
+            }
+        });
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $("#all").addClass("current-menu-item");
+    });
+</script>

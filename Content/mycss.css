@@ -1,0 +1,13 @@
+﻿
+    .field-validation-error{
+        color:red;
+    }
+    .bgColor{
+        color:red;
+    }
+    .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 100%;
+}
+    .error{
+        color:red;
+    }

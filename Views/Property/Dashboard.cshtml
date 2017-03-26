@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutPage3.cshtml";
+}
+
+     <!-- SUB BANNER -->
+<section class="section-sub-banner bg-9">
+    <div class="sub-banner">
+        <div class="container">
+            <div class="text text-center">
+                <h2>Dashboard</h2>
+                <p>You can add, delete Properties for rent and sale using this site</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- END / SUB BANNER -->
+<!-- ROOM DETAIL -->
+<section class="section-accomd awe-parallax bg-14">
+    <div class="container">
+        <div class="accomd-modations">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="accomd-modations-header">
+                        <h2 class="heading">Major Towns and Cities in Sweden</h2>
+                        <img src="~/images/icon-accmod.png" alt="icon">
+                        @*<p style="max-width:800px;">
+                columns with major cities under small
+            </p>*@
+
+                    </div>
+                    <div class="col-md-3 col-lg-offset-3">
+                        <ul>
+                            <li>Stockholm</li>
+                            <li>Gothenburg</li>
+                            <li>Malmö</li>
+                            <li>Uppsala</li>
+                            <li>Västerås</li>
+                            <li>Örebro</li>
+                            <li>Linköping</li>
+                            <li>Helsingborg</li>
+                            <li>Jönköping</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                            <li>Norrköping</li>
+                            <li>Lund</li>
+                            <li>Umeå</li>
+                            <li>Gävle</li>
+                            <li>Borås</li>
+                            <li>Södertälje</li>
+                            <li>Eskilstuna</li>
+                            <li>Halmstad</li>
+                            <li>Växjö</li>
+                            <li>Karlstad</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="f"></div>
+</section>
+<!-- END / ACCOMD ODATIONS -->
+<script type="text/javascript" src="~/js/lib/jquery-1.11.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#dashboard").addClass("current-menu-item");       
+    });
+</script>

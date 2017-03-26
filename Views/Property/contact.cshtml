@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "contact";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+<link href="~/Content/mycss.css" rel="stylesheet" />
+       <!-- SUB BANNER -->
+<section class="section-sub-banner bg-9">
+    <div class="sub-banner">
+        <div class="container">
+            <div class="text text-center">
+                <h2>CONTACT WITH US</h2>
+                @*<p>Lorem Ipsum is simply dummy text of the printing</p>*@
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- END / SUB BANNER -->
+<!-- CONTACT -->
+<section class="section-contact">
+    <div class="container">
+        <div class="contact">
+            <div class="row">
+
+                <div class="col-md-6 col-lg-5">
+
+                    <div class="text">
+                        <h2>Contact</h2>
+                        <p>
+                            Whether you’re looking for answers, would like to solve a problem, or just want to let us know how we did, you’ll find many ways to contact us right here. We’ll help you resolve your issues quickly and easily, getting you back to more important things. 
+                        </p>
+                        <ul>
+                            <li><i class="icon lotus-icon-location"></i>  25 Storgaten Växjö, Sweden</li>
+                            <li><i class="icon lotus-icon-phone"></i>  0046 70 188 1324</li>
+                            <li><i class="icon fa fa-envelope-o"></i> <a href="mailto:vaxjoestate@gmail.com"> vaxjoestate@gmail.com</a></li>
+                        </ul>
+                    </div>                    
+
+                </div>
+
+                <div class="col-md-6 col-lg-6 col-lg-offset-1">
+                    <div class="contact-form">
+                        @using (Html.BeginForm("contact", "Property", FormMethod.Post, new { id = "send-contact-form", enctype = "multipart/form-data" }))
+                        {
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input type="text" class="field-text" name="name" placeholder="Name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="field-text" name="email" placeholder="Email">
+                                </div>
+                                <div class="col-sm-12">
+                                    <input type="text" class="field-text" name="subject" placeholder="Subject">
+                                </div>
+                                <div class="col-sm-12">
+                                    <textarea cols="25" rows="10" name="message" class="field-textarea" placeholder="Write what do you want"></textarea>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="submit" class="awe-btn awe-btn-13">SEND</button>
+                                </div>
+                            </div>
+                            <div id="contact-content"></div>
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END / CONTACT -->
+<!-- MAP -->
+<section class="section-map">
+    <h1 class="element-invisible">Map</h1>
+    <div class="contact-map">
+        <div id="map" data-locations="56.8788713,14.8015052 56.8788713,14.8015052" data-center="56.8788713,14.8015052"></div>
+    </div>
+</section>
+<!-- END / MAP -->
+
+@*My API KEY= AIzaSyCqyYPrMdvcAaovHYj8UxmIdoM5UJ8J4o4*@
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script>
+@*<script src="~/js/google-map-init.js"></script>*@

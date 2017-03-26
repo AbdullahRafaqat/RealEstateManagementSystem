@@ -1,0 +1,98 @@
+﻿@*@model IEnumerable<RealEstate.extModals.newPropModal>*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+  
+ <!-- ACCOMD ODATIONS -->
+<section class="section-accomd awe-parallax bg-14">
+    <div class="container">
+        <div class="accomd-modations">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="accomd-modations-header">
+                        <h2 class="heading">Latest Homes</h2>
+                        <img src="~/images/icon-accmod.png" alt="icon">
+                        <p>Check Latest Homes available for Rent and Sale</p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="accomd-modations-content owl-single">
+
+                        <div class="row">
+@foreach (var item in ViewBag.Data)
+                                {
+                            <!-- ITEM -->
+                            <div class="col-xs-4">
+                                <div class="accomd-modations-room">
+                                    
+                                        @{string Pimage = null;
+                                        byte[] Photo = item.imageProper;
+                                        string PimaBase64 = Convert.ToBase64String(Photo);
+                                        Pimage = string.Format("data:image/jpeg;base64,{0}", PimaBase64);
+                                        }                                                                       
+                                    <div class="img">                                  
+                                        <a href="@Url.Action("Detail", new { id = item.ProID })"><img src="@Pimage" alt=""></a>
+                                    </div>
+                                    <div class="text">
+                                        @*<h2><a href="#">Luxury Room</a></h2>*@
+                                        <h2><a href="@Url.Action("Detail", new { id = item.ProID })">@item.propName</a></h2>
+                                        @*<p class="price">@item.PropFor</p>*@
+                                       @* <p style=" color: #e1bd85; margin-bottom: 0; font-family: 'Montserrat'; margin-top: 0;">For @item.PropFor</p>*@
+                                        <p class="price">                                            
+                                            <span class="amout">SEK @item.Price</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END / ITEM -->
+
+}
+                        </div>
+
+                        <div class="row">
+
+                            @foreach (var item in ViewBag.Data)
+                            {
+                            <!-- ITEM -->
+                                <div class="col-xs-4">
+                                    <div class="accomd-modations-room">
+
+                                        @{string Pimage = null;
+                                        byte[] Photo = item.imageProper;
+                                        string PimaBase64 = Convert.ToBase64String(Photo);
+                                        Pimage = string.Format("data:image/jpeg;base64,{0}", PimaBase64);
+                                        }
+                                        <div class="img">
+                                            <a href="@Url.Action("Detail", new { id = item.ProID })"><img src="@Pimage" alt=""></a>
+                                        </div>
+                                        <div class="text">
+                                            @*<h2><a href="#">Luxury Room</a></h2>*@
+                                            <h2><a href="@Url.Action("Detail", new { id = item.ProID })">@item.propName</a></h2>
+                                            @*<p class="price">@item.PropFor</p>*@
+                                            <p class="price">
+                                                <span class="amout">SEK @item.Price</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- END / ITEM -->
+
+                            }                   
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- END / ACCOMD ODATIONS -->
+<script type="text/javascript" src="~/js/lib/jquery-1.11.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#index").addClass("current-menu-item");
+    });
+</script>

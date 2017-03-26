@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="25ef4a7c580a45babf4fb3cd31e5d7d9" Name="Diagram1">
+        <EntityTypeShape EntityType="realEstateModel.city" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="realEstateModel.property" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="realEstateModel.propImage" Width="1.5" PointX="7.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="realEstateModel.user" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="realEstateModel.fk_cities_properties" ManuallyRouted="false" />
+        <AssociationConnector Association="realEstateModel.users_cities_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="realEstateModel.FK__propImage__propI__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="realEstateModel.fk_agent_properties" ManuallyRouted="false" />
+        <AssociationConnector Association="realEstateModel.FK__propImage__propA__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="realEstateModel.FK__propImage__propA__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="realEstateModel.FK__propImage__propA__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="realEstateModel.FK__propImage__propA__286302EC" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

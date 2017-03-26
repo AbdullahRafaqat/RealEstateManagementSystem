@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- TITLE -->
+    <title>Real Estate</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="~/favicon.ico" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Hind:400,300,500,600%7cMontserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- CSS LIBRARY -->
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/font-lotusicon.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/settings.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/bootstrap-select.min.css">
+
+    <!-- MAIN STYLE -->
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css">
+</head>
+<body>
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <span class="preloader-dot"></span>
+    </div>
+    <!-- END / PRELOADER -->
+    <div id="page-wrap">
+
+        <!-- HEADER -->
+        <header id="header">           
+            <!-- HEADER TOP -->
+            <div class="header_top">
+                <div class="container">
+                    <div class="header_left float-left">
+                        <span><i class="lotus-icon-time"></i> @DateTime.Now</span>
+                        <span><i class="lotus-icon-location"></i> 25 Storgaten Växjö, Sweden</span>
+                        <span><i class="lotus-icon-phone"></i> 0046 70 188 1324</span>
+                    </div>
+                    <div class="header_right float-right">
+
+                        <span class="login-register">
+                            <a href="@Url.Action("login")">Login</a>
+                            <a href="@Url.Action("register")">register</a>
+                        </span>                        
+
+                    </div>
+                </div>
+            </div>
+            <!-- END / HEADER TOP -->
+            <!-- HEADER LOGO & MENU -->
+            <div class="header_content" id="header_content">
+
+                <div class="container">
+                    <!-- HEADER LOGO -->
+                    <div class="header_logo">
+                        <a href="@Url.Action("Index")"><img src="~/images/logof.png" alt=""></a>
+                    </div>
+                    <!-- END / HEADER LOGO -->
+                    <!-- HEADER MENU -->
+                    <nav class="header_menu">
+                        <ul class="menu">
+                            <li id="index">
+                                <a href="@Url.Action("Index")">Home</a>
+                            </li>
+                            <li id="about"><a href="@Url.Action("about")">About Us</a></li>
+                            <li id="rent">
+                                <a href="#">To Rent <span class="fa fa-caret-down"></span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="@Url.Action("Villa", new { id=1})">Villa</a></li>
+                                    <li><a href="@Url.Action("Family", new { id = 1 })">Family Apartment</a></li>
+                                    <li><a href="@Url.Action("Student", new { id = 1 })">Student Apartment</a></li>
+                                </ul>
+                            </li>
+                            <li id="sale">
+                                <a href="#">For Sale <span class="fa fa-caret-down"></span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="@Url.Action("Villa", new { id = 2})">Villa</a></li>
+                                    <li><a href="@Url.Action("Family", new { id = 2 })">Family Apartment</a></li>
+                                    <li><a href="@Url.Action("Student", new { id = 2 })">Student Apartment</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                @*<a href="@Url.Action("sitemap")">Sitemap</a>*@                               
+                            </li>
+                            <li id="privacy">
+                                <a href="@Url.Action("privacy")">Privacy</a>
+
+                            </li>
+                            <li id="terms">
+                                <a href="@Url.Action("terms")">Terms of Use</a>
+                            </li>
+                            <li id="agent">
+                                <a href="@Url.Action("Agents")">Agents</a>
+                            </li>
+                            <li id="contact"><a href="@Url.Action("contact")">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                    <!-- END / HEADER MENU -->
+                    <!-- MENU BAR -->
+                    <span class="menu-bars">
+                        <span></span>
+                    </span>
+                    <!-- END / MENU BAR -->
+
+                </div>
+            </div>
+            <!-- END / HEADER LOGO & MENU -->
+
+        </header>
+        <!-- END / HEADER -->    
+        <!-- BANNER SLIDER -->
+        <section class="section-slider">
+            <h1 class="element-invisible">Slider</h1>
+            <div id="slider-revolution">
+                <ul>
+                    <li data-transition="fade">
+                        <img src="~/images/slider4.jpg" data-bgposition="left center" data-duration="14000" data-bgpositionend="right center" alt="">
+
+                        <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="100" data-speed="700" data-start="1500" data-easing="easeOutBack">
+                            <img src="~/images/slider4.jpg" alt="icons">
+                        </div>
+
+                        <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="240" data-speed="700" data-start="1500" data-easing="easeOutBack">
+                            WELCOME TO
+                        </div>
+
+                        <div class="tp-caption sfb fadeout slider-caption slider-caption-sub-1" data-x="center" data-y="280" data-speed="700" data-easing="easeOutBack" data-start="2000">The Växjö Estate</div>
+
+                        <a href="#" class="tp-caption sfb fadeout awe-btn awe-btn-12 awe-btn-slider" data-x="center" data-y="380" data-easing="easeOutBack" data-speed="700" data-start="2200">VIEW NOW</a>
+                    </li>
+                    <li data-transition="fade">
+                        <img src="~/images/slider2.jpg" data-bgposition="left center" data-duration="14000" data-bgpositionend="right center" alt="">
+
+                        <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="100" data-speed="700" data-start="1500" data-easing="easeOutBack">
+                            <img src="~/images/slider2.jpg" alt="icons">
+                        </div>
+
+                        <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="240" data-speed="700" data-start="1500" data-easing="easeOutBack">
+                            All Properties are
+                        </div>
+
+                        <div class="tp-caption sfb fadeout slider-caption slider-caption-sub-1" data-x="center" data-y="280" data-speed="700" data-easing="easeOutBack" data-start="2000">  Available for you</div>
+
+                        <a href="#" class="tp-caption sfb fadeout awe-btn awe-btn-12 awe-btn-slider" data-x="center" data-y="380" data-easing="easeOutBack" data-speed="700" data-start="2200">VIEW NOW</a>
+                    </li>
+                    <li data-transition="fade">
+                        <img src="~/images/slider1.jpg" data-bgposition="left center" data-duration="14000" data-bgpositionend="right center" alt="">
+
+                        <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="100" data-speed="700" data-start="1500" data-easing="easeOutBack">
+                            <img src="~/images/slider1.jpg" alt="icons">
+                        </div>
+
+                        <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="240" data-speed="700" data-start="1500" data-easing="easeOutBack">
+                            All Properties are
+                        </div>
+
+                        <div class="tp-caption sfb fadeout slider-caption slider-caption-sub-1" data-x="center" data-y="280" data-speed="700" data-easing="easeOutBack" data-start="2000">  </div>
+
+                        <a href="#" class="tp-caption sfb fadeout awe-btn awe-btn-12 awe-btn-slider" data-x="center" data-y="380" data-easing="easeOutBack" data-speed="700" data-start="2200">Available</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </section>
+        <!-- END / BANNER SLIDER -->  
+        <!-- CHECK AVAILABILITY -->
+        <section class="section-check-availability">
+            <div class="container">
+                <div class="check-availability">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <h2>Search Property</h2>
+                        </div>
+                        <div class="col-lg-9">
+                            <form id="propSearch" action="Results" method="post">
+                                <div class="availability-form">
+                                    <select class="awe-select" name="sType">                            
+                                        <option value="Rent">To Rent</option>
+                                        <option value="Sale">For Sale</option>                                    
+                                    </select>                              
+                                    <select class="awe-select" name="propType">                                        
+                                        <option value="1">Villa</option>
+                                        <option value="2">Student Apartment</option>
+                                        <option value="3">Family Apartment</option>
+                                    </select>            
+                                    @Html.DropDownList("city", ViewData["Cities"] as IEnumerable<SelectListItem>, new { @class = "awe-select" })                      
+                                        <select class="awe-select" name="minPrice" id="minPrice" required>
+                                            <option value="0">Min (SEK)</option>
+                                            <option value="1000">1000</option>
+                                            <option value="2000">2000</option>
+                                            <option value="3000">3000</option>
+                                            <option value="4000">4000</option>
+                                            <option value="5000">5000</option>
+                                            <option value="6000">6000</option>
+                                            <option value="7000">7000</option>
+                                            <option value="8000">8000</option>
+                                            <option value="9000">9000</option>
+                                            <option value="10000">10000+</option>
+                                        </select>                               
+                                    <select class="awe-select" name="maxPrice" id="maxPrice" required>
+                                        <option value="0">Max (SEK)</option>
+                                        <option value="1000">1000</option>
+                                        <option value="2000">2000</option>
+                                        <option value="3000">3000</option>
+                                        <option value="4000">4000</option>
+                                        <option value="5000">5000</option>
+                                        <option value="6000">6000</option>
+                                        <option value="7000">7000</option>
+                                        <option value="8000">8000</option>
+                                        <option value="9000">9000</option>
+                                        <option value="10000">10000+</option>
+                                    </select>
+                                    <div class="vailability-submit">
+                                        <button class="awe-btn awe-btn-13">FIND</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END / CHECK AVAILABILITY -->
+        <div>
+            @RenderBody()
+        </div>
+        <!-- FOOTER -->
+        <footer id="footer">
+
+            <!-- FOOTER TOP -->
+            <div class="footer_top">
+                <div class="container">
+                    <div class="row">
+
+                        <!-- WIDGET MAILCHIMP -->
+                        <div class="col-lg-9">
+                            <div class="mailchimp">
+                                <h4>News &amp; Offers</h4>
+                                <div class="mailchimp-form">
+                                    <form action="#" method="POST">
+                                        <input type="email" required name="email" placeholder="Your email address" class="input-text">
+                                        <button class="awe-btn">SIGN UP</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END / WIDGET MAILCHIMP -->
+                        <!-- WIDGET SOCIAL -->
+                        <div class="col-lg-3">               
+                            <div class="social">
+                                <div class="social-content">
+                                    <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                    <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    <a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                    <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END / WIDGET SOCIAL -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- END / FOOTER TOP -->
+            
+            <!-- FOOTER BOTTOM -->
+            <div class="footer_bottom">
+                <div class="container">
+                    <p>&copy; 2017 Växjö Estate All rights reserved.</p>
+                </div>
+            </div>
+            <!-- END / FOOTER BOTTOM -->
+
+        </footer>
+        <!-- END / FOOTER -->
+
+    </div>
+   
+    <!-- LOAD JQUERY -->
+    <script type="text/javascript" src="~/js/lib/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/bootstrap-select.js"></script>
+    @*<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;signed_in=true"></script>*@
+    <script type="text/javascript" src="~/js/lib/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/owl.carousel.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.appear.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.countTo.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.parallax-1.1.3.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/SmoothScroll.js"></script>
+    <!-- validate -->
+    <script type="text/javascript" src="~/js/lib/jquery.form.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.validate.min.js"></script>
+    <!-- Custom jQuery -->
+    <script type="text/javascript" src="~/js/scripts.js"></script>
+    @*<script src="https://code.jquery.com/jquery-1.6.4.min.js" integrity="sha256-lR1rrjnrFy9XqIvWhvepIc8GD9IfWWSPDSC2qPmPxaU="     crossorigin="anonymous"></script>*@
+    <script src="~/js/search.js"></script>
+</body>
+</html>

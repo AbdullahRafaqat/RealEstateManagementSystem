@@ -1,0 +1,35 @@
+﻿@model RealEstate.extModals.loginModel
+@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+<link href="~/Content/mycss.css" rel="stylesheet" />
+<!-- ACCOUNT -->
+<section class="section-account parallax bg-11">
+    <div class="awe-overlay"></div>
+    <div class="container">
+        <div class="login-register">
+            <div class="text text-center">
+                <h2>LOGIN ACCOUNT</h2>                
+              @using (Html.BeginForm("login", "Property", FormMethod.Post, new { @class = "account_form", id = "loginform" }))
+               {
+                <h3 class="bgColor">@ViewBag.Error</h3>               
+                    <div class="field-form">                    
+                        @Html.TextBoxFor(m => m.UserEmail, new { @class = "field-text", required = "required", placeholder = "Email*" })
+                        @Html.ValidationMessageFor(modelItem => @Model.UserEmail)
+                    </div>                   
+                    <div class="field-form">                     
+                        @Html.PasswordFor(m => m.Password, new { @class = "field-text", required = "required", placeholder = "Password*" })
+                        @Html.ValidationMessageFor(modelItem => @Model.Password)
+                        <span class="view-pass"><i class="lotus-icon-view"></i></span>
+                    </div>
+                    <div class="field-form field-submit">
+                        <button class="awe-btn awe-btn-13">Login</button>
+                    </div>                    
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END / ACCOUNT -->
+

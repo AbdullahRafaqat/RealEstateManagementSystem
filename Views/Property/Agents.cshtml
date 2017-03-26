@@ -1,0 +1,99 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<RealEstate.extModals.showAgents>
+@*@model  IEnumerable<RealEstate.extModals.registerModal>*@
+@{
+    ViewBag.Title = "Agents";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+<!-- SUB BANNER -->
+<section class="section-sub-banner bg-9">
+    <div class="sub-banner">
+        <div class="container">
+            <div class="text text-center">
+                <h2>Agents</h2>
+                <p>All Registered Agents in Sweden</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- END / SUB BANNER -->
+
+<!-- RESTAURANTS -->
+<section class="section-restaurant-2 bg-white">
+    <div class="container">
+
+        <div class="restaurant-small">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="restaurant_content">
+                        <!-- HEADING -->
+                        <div class="restaurant_title">
+                            @*<h2 class="heading">All Registered Agents in Sweden</h2>*@
+                            @*<span class="time">11h00 Am - 2h00 Pm</span>*@
+                        </div>
+                        <!-- END / HEADING -->
+                        <!-- ITEM -->
+                        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>                                    
+                                    <th>City</th>
+                                    @*<th>Created Date</th>*@
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>                                   
+                                    <th>City</th>
+                                    @*<th>Created Date</th>*@
+                                </tr>
+                            </tfoot>
+                            <tbody id="tablebody">
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.UserName
+                                        </td>
+                                        <td>
+                                            @item.UserEmail
+                                        </td>
+                                        <td>
+                                            @item.UserPhone
+                                        </td>
+                                        <td class="amout">
+                                            @item.city
+                                        </td>
+                                        @*<td>
+                                            @item.Dated
+                                         </td>*@
+                                    </tr>
+                                }
+                            </tbody>
+
+                        </table>
+                        <!-- END / ITEM -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center; width:100%;">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("Agents", new { page }))
+        </div>
+    </div>
+</section>
+<!-- END / RESTAURANTS -->
+
+<script type="text/javascript" src="~/js/lib/jquery-1.11.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#agent").addClass("current-menu-item");
+    });
+</script>

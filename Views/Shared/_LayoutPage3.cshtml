@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- TITLE -->
+    <title>Real Estate</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="~/favicon.ico" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Hind:400,300,500,600%7cMontserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- CSS LIBRARY -->
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/font-lotusicon.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/settings.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/bootstrap-select.min.css">  
+    <!-- MAIN STYLE -->
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css">
+</head>
+<body>
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <span class="preloader-dot"></span>
+    </div>
+    <!-- END / PRELOADER -->
+    <div id="page-wrap">
+
+        <!-- HEADER -->
+        <header id="header">
+            <!-- HEADER TOP -->
+            <div class="header_top">
+                <div class="container">
+                    <div class="header_left float-left">
+                        <span><i class="lotus-icon-time"></i> @DateTime.Now</span>
+                        <span><i class="lotus-icon-location"></i> 25 Storgaten Vaxjo, Sweden</span>
+                        <span><i class="lotus-icon-phone"></i> 0046 70 188 1324</span>
+                    </div>
+                    <div class="header_right float-right">
+
+                        <span class="login-register">
+                            <a href="#" style="border:1px solid;">@Session["userNam"]</a>
+                            
+                            <a href="@Url.Action("logout")">Logout</a>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+            <!-- END / HEADER TOP -->
+            <!-- HEADER LOGO & MENU -->
+            <div class="header_content" id="header_content">
+
+                <div class="container">
+                    <!-- HEADER LOGO -->
+                    <div class="header_logo">
+                        <a href="@Url.Action("Index")"><img src="~/images/logof.png" alt=""></a>
+                    </div>
+                    <!-- END / HEADER LOGO -->
+                    <!-- HEADER MENU -->
+                    <nav class="header_menu">
+                        <ul class="menu">
+                            <li id="dashboard"> @*class="current-menu-item"*@
+                                @if (Convert.ToInt16(Session["UserID"]) == 2) 
+                                { 
+                                <a href="@Url.Action("Dashboard")">Dashboard</a>
+                                }
+                            </li>
+                            <li id="new"><a href="@Url.Action("New")">Add New Property</a></li>                                                       
+                            <li id="all">
+                                <a href="@Url.Action("All")">My Properties</a>
+                            </li>
+                            @if(Convert.ToInt16( Session["UserID"])==2){
+                                <li id="allProp">
+                                   <a href="@Url.Action("AllProperties")">All Properties</a>
+                                </li>
+                                <li id="allAgent">
+                                   <a href="@Url.Action("AllAgents")">Agents</a>
+                                </li>
+                            }
+                            @*<li>
+                                <a href="@Url.Action("privacy")">Privacy</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("terms")">Terms of Use</a>
+                            </li>
+                            <li>
+                                <a href="#">Agents</a>
+                            </li>
+                            <li><a href="@Url.Action("contact")">Contact Us</a></li>*@
+                        </ul>
+                    </nav>
+                    <!-- END / HEADER MENU -->
+                    <!-- MENU BAR -->
+                    <span class="menu-bars">
+                        <span></span>
+                    </span>
+                    <!-- END / MENU BAR -->
+
+                </div>
+            </div>
+            <!-- END / HEADER LOGO & MENU -->
+
+        </header>
+        <!-- END / HEADER -->
+       
+        <!-- END / CHECK AVAILABILITY -->
+        <div>
+            @RenderBody()
+        </div>
+        <!-- FOOTER -->
+        <footer id="footer">
+
+            <!-- FOOTER TOP -->
+            <div class="footer_top">
+                <div class="container">
+                    <div class="row">
+
+                        <!-- WIDGET MAILCHIMP -->
+                        <div class="col-lg-9">
+                            <div class="mailchimp">
+                                <h4>News &amp; Offers</h4>
+                                <div class="mailchimp-form">
+                                    <form action="#" method="POST">
+                                        <input type="email" required name="email" placeholder="Your email address" class="input-text">
+                                        <button class="awe-btn">SIGN UP</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END / WIDGET MAILCHIMP -->
+                        <!-- WIDGET SOCIAL -->
+                        <div class="col-lg-3">
+                            <div class="social">
+                                <div class="social-content">
+                                    <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                    <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    <a href="https://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                    <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END / WIDGET SOCIAL -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- END / FOOTER TOP -->
+            <!-- FOOTER BOTTOM -->
+            <div class="footer_bottom">
+                <div class="container">
+                    <p>&copy; 2017 Växjö Estate All rights reserved.</p>
+                </div>
+            </div>
+            <!-- END / FOOTER BOTTOM -->
+
+        </footer>
+        <!-- END / FOOTER -->
+
+    </div>
+
+    <!-- LOAD JQUERY -->
+    <script type="text/javascript" src="~/js/lib/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery-ui.min.js"></script> 
+    <script type="text/javascript" src="~/js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/bootstrap-select.js"></script>
+    @*<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;signed_in=true"></script>*@
+    <script type="text/javascript" src="~/js/lib/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/owl.carousel.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.appear.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.countTo.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.parallax-1.1.3.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/SmoothScroll.js"></script>
+    <!-- validate -->
+    <script type="text/javascript" src="~/js/lib/jquery.form.min.js"></script>
+    <script type="text/javascript" src="~/js/lib/jquery.validate.min.js"></script>
+    <!-- Custom jQuery -->
+    <script type="text/javascript" src="~/js/scripts.js"></script>       
+    
+</body>
+</html>

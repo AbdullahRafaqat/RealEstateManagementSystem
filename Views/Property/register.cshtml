@@ -1,0 +1,61 @@
+﻿@model RealEstate.extModals.registerModal
+@{
+    ViewBag.Title = "register";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+<link href="~/Content/mycss.css" rel="stylesheet" />
+    <!-- ACCOUNT -->
+<section class="section-account parallax bg-11" style="padding-top: 120px;">
+    <div class="awe-overlay"></div>
+    <div class="container">
+        <div class="login-register">
+            <div class="text text-center">
+                <h2>REGISTER as an Agent</h2>
+                <p>If you no have account in  Växjö Estate! Register and feeling</p>              
+                @using (Html.BeginForm("register", "Property", FormMethod.Post, new { @class = "account_form", id = "registerform" }))
+                {
+                    <h3> <strong style="color:red;"> @ViewBag.emailError</strong></h3>
+                    <h4> <strong style="color:green;"> @ViewBag.success</strong></h4>
+                    <div class="field-form">                       
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "field-text", required = "required", placeholder = "Full Name/Company*" })
+                        @Html.ValidationMessageFor(modelItem => @Model.UserName)
+                    </div>
+
+                    <div class="field-form shortcode-select">        
+                        @Html.DropDownListFor(m => m.cities.cityID, ViewData["Cities"] as IEnumerable<SelectListItem>, "--Select City*--", new { @class = "awe-select" })        
+                        @Html.ValidationMessageFor(modelItem => @Model.cities.cityID)
+                    </div>
+                    <div class="field-form">                        
+                        @Html.TextBoxFor(m => m.UserPhone, new { @class = "field-text", required = "required", placeholder = "Phone*" })
+                        @Html.ValidationMessageFor(modelItem => @Model.UserPhone)
+                    </div>
+                    <div class="field-form">                        
+                        @Html.TextBoxFor(m => m.UserEmail, new { @class = "field-text", required = "required", placeholder = "Email*" })
+                        @Html.ValidationMessageFor(modelItem => @Model.UserEmail)
+                    </div>
+                    <div class="field-form">                     
+                        @Html.TextBoxFor(m => m.confirmEmail, new { @class = "field-text", required = "required", placeholder = "Confirm Email*" })
+                        @Html.ValidationMessageFor(modelItem => @Model.confirmEmail)
+                    </div>
+                    <div class="field-form">                       
+                        @Html.PasswordFor(m => m.Password, new { @class = "field-text", required = "required", placeholder = "Password*" })
+                        @Html.ValidationMessageFor(modelItem => @Model.Password)
+                        <span class="view-pass"><i class="lotus-icon-view"></i></span>
+                    </div>
+                    <div class="field-form">                       
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "field-text", required = "required", placeholder = "Confirm Password*" })
+                        @Html.ValidationMessageFor(modelItem => @Model.ConfirmPassword)
+                        <span class="view-pass"><i class="lotus-icon-view"></i></span>
+                    </div>
+                    <div class="field-form field-submit">
+                        <button class="awe-btn awe-btn-13">REGISTER</button>
+                    </div>
+                }
+                @*</form>*@
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END / ACCOUNT -->
+

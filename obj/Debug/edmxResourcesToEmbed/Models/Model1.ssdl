@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="realEstateModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cities">
+    <Key>
+      <PropertyRef Name="cityID" />
+    </Key>
+    <Property Name="cityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cityName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="properties">
+    <Key>
+      <PropertyRef Name="PropID" />
+    </Key>
+    <Property Name="PropID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pName" Type="nvarchar(max)" />
+    <Property Name="pType" Type="int" />
+    <Property Name="propFor" Type="nvarchar(max)" />
+    <Property Name="pFloors" Type="int" />
+    <Property Name="pPrice" Type="int" />
+    <Property Name="pNoofRooms" Type="int" />
+    <Property Name="pNoofBeds" Type="int" />
+    <Property Name="pSizeSquare" Type="int" />
+    <Property Name="pCityID_FK" Type="int" />
+    <Property Name="pAddress" Type="nvarchar(max)" />
+    <Property Name="pPostCode" Type="nvarchar(max)" />
+    <Property Name="pDescription" Type="text" />
+    <Property Name="pAgentID_FK" Type="int" />
+    <Property Name="pPublicationDate" Type="date" />
+    <Property Name="pAvailableFrom" Type="date" />
+    <Property Name="pLastUpdated" Type="date" />
+    <Property Name="pActivationStatus" Type="bit" />
+    <Property Name="pActivationAdmin" Type="bit" />
+  </EntityType>
+  <EntityType Name="propImages">
+    <Key>
+      <PropertyRef Name="imageID" />
+    </Key>
+    <Property Name="imageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="propImage" Type="varbinary(max)" />
+    <Property Name="propImageThumb" Type="varbinary(max)" />
+    <Property Name="propID_FK" Type="int" />
+    <Property Name="propAgentID_FK" Type="int" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="50" />
+    <Property Name="uEmail" Type="nvarchar(max)" />
+    <Property Name="uPassword" Type="nvarchar(max)" />
+    <Property Name="uPhone" Type="nvarchar(max)" />
+    <Property Name="uCityID_FK" Type="int" />
+    <Property Name="uActivation" Type="bit" />
+    <Property Name="uActivAdmin" Type="bit" />
+    <Property Name="uGuid" Type="uniqueidentifier" />
+    <Property Name="uLogo" Type="varbinary(max)" />
+    <Property Name="uDateCreated" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__propImage__propA__182C9B23">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="propImages" Type="Self.propImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="propImages">
+        <PropertyRef Name="propAgentID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__propImage__propA__1ED998B2">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="propImages" Type="Self.propImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="propImages">
+        <PropertyRef Name="propAgentID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__propImage__propA__239E4DCF">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="propImages" Type="Self.propImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="propImages">
+        <PropertyRef Name="propAgentID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__propImage__propA__286302EC">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="propImages" Type="Self.propImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="propImages">
+        <PropertyRef Name="propAgentID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__propImage__propI__22AA2996">
+    <End Role="properties" Type="Self.properties" Multiplicity="0..1" />
+    <End Role="propImages" Type="Self.propImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="properties">
+        <PropertyRef Name="PropID" />
+      </Principal>
+      <Dependent Role="propImages">
+        <PropertyRef Name="propID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_agent_properties">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="properties" Type="Self.properties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="properties">
+        <PropertyRef Name="pAgentID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cities_properties">
+    <End Role="cities" Type="Self.cities" Multiplicity="0..1" />
+    <End Role="properties" Type="Self.properties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cities">
+        <PropertyRef Name="cityID" />
+      </Principal>
+      <Dependent Role="properties">
+        <PropertyRef Name="pCityID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="users_cities_FK">
+    <End Role="cities" Type="Self.cities" Multiplicity="0..1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cities">
+        <PropertyRef Name="cityID" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="uCityID_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="realEstateModelStoreContainer">
+    <EntitySet Name="cities" EntityType="Self.cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="properties" EntityType="Self.properties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="propImages" EntityType="Self.propImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__propImage__propA__182C9B23" Association="Self.FK__propImage__propA__182C9B23">
+      <End Role="users" EntitySet="users" />
+      <End Role="propImages" EntitySet="propImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__propImage__propA__1ED998B2" Association="Self.FK__propImage__propA__1ED998B2">
+      <End Role="users" EntitySet="users" />
+      <End Role="propImages" EntitySet="propImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__propImage__propA__239E4DCF" Association="Self.FK__propImage__propA__239E4DCF">
+      <End Role="users" EntitySet="users" />
+      <End Role="propImages" EntitySet="propImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__propImage__propA__286302EC" Association="Self.FK__propImage__propA__286302EC">
+      <End Role="users" EntitySet="users" />
+      <End Role="propImages" EntitySet="propImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__propImage__propI__22AA2996" Association="Self.FK__propImage__propI__22AA2996">
+      <End Role="properties" EntitySet="properties" />
+      <End Role="propImages" EntitySet="propImages" />
+    </AssociationSet>
+    <AssociationSet Name="fk_agent_properties" Association="Self.fk_agent_properties">
+      <End Role="users" EntitySet="users" />
+      <End Role="properties" EntitySet="properties" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cities_properties" Association="Self.fk_cities_properties">
+      <End Role="cities" EntitySet="cities" />
+      <End Role="properties" EntitySet="properties" />
+    </AssociationSet>
+    <AssociationSet Name="users_cities_FK" Association="Self.users_cities_FK">
+      <End Role="cities" EntitySet="cities" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

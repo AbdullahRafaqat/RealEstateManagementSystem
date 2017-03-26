@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="realEstateModelStoreContainer" CdmEntityContainer="realEstateEntities">
+    <EntitySetMapping Name="cities">
+      <EntityTypeMapping TypeName="realEstateModel.city">
+        <MappingFragment StoreEntitySet="cities">
+          <ScalarProperty Name="cityID" ColumnName="cityID" />
+          <ScalarProperty Name="cityName" ColumnName="cityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="properties">
+      <EntityTypeMapping TypeName="realEstateModel.property">
+        <MappingFragment StoreEntitySet="properties">
+          <ScalarProperty Name="PropID" ColumnName="PropID" />
+          <ScalarProperty Name="pName" ColumnName="pName" />
+          <ScalarProperty Name="pType" ColumnName="pType" />
+          <ScalarProperty Name="propFor" ColumnName="propFor" />
+          <ScalarProperty Name="pFloors" ColumnName="pFloors" />
+          <ScalarProperty Name="pPrice" ColumnName="pPrice" />
+          <ScalarProperty Name="pNoofRooms" ColumnName="pNoofRooms" />
+          <ScalarProperty Name="pNoofBeds" ColumnName="pNoofBeds" />
+          <ScalarProperty Name="pSizeSquare" ColumnName="pSizeSquare" />
+          <ScalarProperty Name="pCityID_FK" ColumnName="pCityID_FK" />
+          <ScalarProperty Name="pAddress" ColumnName="pAddress" />
+          <ScalarProperty Name="pPostCode" ColumnName="pPostCode" />
+          <ScalarProperty Name="pDescription" ColumnName="pDescription" />
+          <ScalarProperty Name="pAgentID_FK" ColumnName="pAgentID_FK" />
+          <ScalarProperty Name="pPublicationDate" ColumnName="pPublicationDate" />
+          <ScalarProperty Name="pAvailableFrom" ColumnName="pAvailableFrom" />
+          <ScalarProperty Name="pLastUpdated" ColumnName="pLastUpdated" />
+          <ScalarProperty Name="pActivationStatus" ColumnName="pActivationStatus" />
+          <ScalarProperty Name="pActivationAdmin" ColumnName="pActivationAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="propImages">
+      <EntityTypeMapping TypeName="realEstateModel.propImage">
+        <MappingFragment StoreEntitySet="propImages">
+          <ScalarProperty Name="imageID" ColumnName="imageID" />
+          <ScalarProperty Name="propImage1" ColumnName="propImage" />
+          <ScalarProperty Name="propImageThumb" ColumnName="propImageThumb" />
+          <ScalarProperty Name="propID_FK" ColumnName="propID_FK" />
+          <ScalarProperty Name="propAgentID_FK" ColumnName="propAgentID_FK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="realEstateModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="uEmail" ColumnName="uEmail" />
+          <ScalarProperty Name="uPassword" ColumnName="uPassword" />
+          <ScalarProperty Name="uPhone" ColumnName="uPhone" />
+          <ScalarProperty Name="uCityID_FK" ColumnName="uCityID_FK" />
+          <ScalarProperty Name="uActivation" ColumnName="uActivation" />
+          <ScalarProperty Name="uActivAdmin" ColumnName="uActivAdmin" />
+          <ScalarProperty Name="uGuid" ColumnName="uGuid" />
+          <ScalarProperty Name="uLogo" ColumnName="uLogo" />
+          <ScalarProperty Name="uDateCreated" ColumnName="uDateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

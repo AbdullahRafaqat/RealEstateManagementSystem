@@ -1,0 +1,193 @@
+﻿@model IEnumerable<RealEstate.extModals.newPropModal>
+@{
+    ViewBag.Title = "PropertyDetail";
+    Layout = "~/Views/Shared/_LayoutPage3.cshtml";
+}
+
+<!-- SUB BANNER -->
+<section class="section-sub-banner bg-9">
+    <div class="sub-banner">
+        <div class="container">
+            <div class="text text-center">
+                <h2>Property Detail</h2>
+                @*<p>All Uploaded Properties</p>*@
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- END / SUB BANNER -->
+    <!-- ROOM DETAIL -->
+<section class="section-room-detail bg-white">
+    <div class="container">
+
+        <!-- DETAIL -->
+        <div class="room-detail">
+            <div class="row">
+                <div class="col-lg-9">
+                    <!-- LAGER IMGAE -->
+               
+                    <div class="room-detail_img">
+                   @foreach (var item in Model)
+                    {
+                        <div class="room_img-item">                   
+                            <div>                               
+                                @{string Pimage = null;
+                                byte[] Photo = item.imageProper;
+                                string PimaBase64 = Convert.ToBase64String(Photo);
+                                Pimage = string.Format("data:image/jpeg;base64,{0}", PimaBase64);
+                                }
+                            </div>                  
+                            <img src="@Pimage" alt="">
+                        </div>    
+                     }                              
+                    </div>
+                    <!-- END / LAGER IMGAE -->
+                    <!-- THUMBNAIL IMAGE -->
+                       
+                    <div class="room-detail_thumbs">
+                        @foreach (var item in Model)
+                        {   <div>
+                            @{string PimageSrc = null;
+                            byte[] Pphoto = item.imageThum;
+                            string PimageBase64 = Convert.ToBase64String(Pphoto);
+                            PimageSrc = string.Format("data:image/jpeg;base64,{0}", PimageBase64);
+                            }
+
+                            <a href="#"><img src="@PimageSrc" alt=""></a>
+                        </div>
+                        }
+                    </div>
+                    <!-- END / THUMBNAIL IMAGE -->
+                        
+                </div>
+
+                <div class="col-lg-3">
+
+                    <!-- FORM BOOK -->
+                    <div class="room-detail_book">
+@foreach (var desc in ViewBag.PropDetail)
+                    {
+                        <div class="room-detail_total">                         
+                            <h6>Price/Rent</h6>
+                            <p class="price">
+                                <span class="amout">@desc.Price</span>
+                            </p>
+                        </div>
+
+                        <div class="room-detail_form">
+                            <label>Size Square Meter</label>
+                            @desc.sizeSquare
+                            <label>No of Beds</label>
+                            @desc.noofBed
+                            <label>Address</label>
+                            @desc.Address
+                            <label>City</label>
+                            @desc.PropCity
+                            <label>Post Code</label>
+                            @desc.Postcode
+                        </div>
+}
+                    </div>
+                    <!-- END / FORM BOOK -->
+
+                </div>
+            </div>
+        </div>
+        <!-- END / DETAIL -->
+        <!-- TAB -->
+        <div class="room-detail_tab">
+            <div class="col-lg-12">
+                <div class="tab-pane fade active in" id="rates">
+
+                    <div class="room-detail_rates">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Available From</th>
+                                    <th>Posted Date</th>
+                                    <th>Property Type</th>
+                                    <th>Property For</th>
+                                    <th>Floor No</th>
+                                    <th>No of Beds</th>
+                                </tr>
+                            </thead>
+                            <tr>
+@foreach (var desc in ViewBag.PropDetail)
+                    {
+                                <td>
+                                    @desc.availablefrom.ToString("MM/dd/yyyy")
+                                </td>
+                                <td>
+                                    @desc.CreatedDate.ToString("MM/dd/yyyy")
+                                </td>
+                                <td>
+                                    @*<p class="price"><span class="amout">$23</span></p>*@
+                                    @if (desc.ProType == 1)
+                                    {
+                                        <span>Villa</span>
+                                    }
+                                    else if (desc.ProType == 2)
+                                    {
+                                        <span>Student Apartment</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Family Apartment</span>
+                                    }
+                                </td>
+                                <td>
+                                   @desc.PropFor
+                                </td>
+                                <td>
+                                    @desc.nooffloor
+                                </td>
+                                <td>
+                                    @desc.noofBed
+                                </td>
+}
+                            </tr>                                                        
+                        </table>
+                    </div>
+
+                </div>
+                <!-- FORM BOOK -->              
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="room-detail_tab-header">
+                        <li><a href="#overview" data-toggle="tab">Description</a></li>                        
+                    </ul>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="room-detail_tab-content tab-content">
+
+                        <!-- OVERVIEW -->
+                        <div class="tab-pane fade active in" id="overview">
+
+                            <div class="room-detail_overview">
+                                @foreach (var desc1 in ViewBag.PropDetail)
+                                {
+                                    <h5 class='text-uppercase'>
+                                       @desc1.propName
+                                    </h5>
+                                    <p>@desc1.description</p>
+                                }
+                            </div>
+
+                        </div>
+                        <!-- END / OVERVIEW -->                     
+                    </div>
+                </div>
+
+            </div>
+
+        </div>        
+        <!-- END / TAB -->   
+    </div>
+</section>
+<!-- END / SHOP DETAIL -->
+

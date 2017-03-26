@@ -1,0 +1,161 @@
+﻿@model RealEstate.extModals.newPropModal
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_LayoutPage3.cshtml";
+}
+<link href="~/Content/mycss.css" rel="stylesheet" />
+<style>
+    .awe-calendar-wrapper {
+         display: block; 
+        vertical-align: middle;
+        position: relative;
+    }
+</style>
+ <!-- SUB BANNER -->
+<section class="section-sub-banner bg-9">
+    <div class="awe-overlay"></div>
+    <div class="sub-banner">
+        <div class="container">
+            <div class="text text-center">
+                <h2>Add New Property</h2>
+                @*<p>Lorem Ipsum is simply dummy text</p>*@
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END / SUB BANNER -->
+ <!-- BLOG -->
+<section class="section-checkout">
+    <div class="container">
+        <div class="checkout">           
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="checkout_head">
+                        <h3>Add Property Details</h3>
+                        @*<span>Lorem Ipsum is simply dummy text</span>*@
+                    </div>
+
+                    <div class="checkout_form">
+                        @using (Html.BeginForm("New", "Property", FormMethod.Post, new { id = "NewProperty", enctype = "multipart/form-data" }))
+                        {
+                            <h3 style="color:green;text-align:center">@ViewBag.Message</h3>
+                            <div class="row">
+                                
+                                <div class="col-xs-6 col-sm-6">
+                                    <label>Property Name<span class="bgColor">*</span></label>                                    
+                                    @Html.TextBoxFor(m => m.propName, new { @class = "field-text", placeholder = "Please Provide Property Name" })
+                                    @Html.ValidationMessageFor(u => u.propName)
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <label>Rent per Month/Price of House (SEK)<span class="bgColor">*</span></label>
+                                    @Html.TextBoxFor(m => m.Price, new { @class = "field-text", placeholder = "Please Provide Property Price" })
+                                    @Html.ValidationMessageFor(u => u.Price)
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <label>Property Type<span class="bgColor">*</span></label>
+                                    <select class="awe-select" id="propType" name="propType">
+                                        <option value="1">Villa</option>
+                                        <option value="2">Student Apartment</option>
+                                        <option value="3">Family Apartment</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <label>Property for<span class="bgColor">*</span></label>
+                                    <select class="awe-select" id="propFor" name="propFor">
+                                        <option value="Rent">Rent</option>
+                                        <option value="Sale">Sale</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <label>Floor No<span class="bgColor">*</span></label>
+                                    <select class="awe-select" id="noofFloors" name="noofFloors">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7+</option>
+                                    </select>
+                               </div>                               
+                                <div class="col-xs-6 col-sm-6">
+                                    <label>No of Rooms<span class="bgColor">*</span></label>
+                                    <select class="awe-select" id="noofRooms" name="noofRooms">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7+</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-xs-6 col-sm-6">
+                                    <label>No of Beds<span class="bgColor">*</span></label>
+                                    <select class="awe-select" id="noofBeds" name="noofBeds">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7+</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <label>Size Square Meters<span class="bgColor">*</span></label>                                    
+                                    @Html.TextBoxFor(m => m.SizeSquare, new { @class = "field-text", placeholder = "Please Provide Property Size Square meters" })
+                                    @Html.ValidationMessageFor(u => u.SizeSquare)
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <label>City<span class="bgColor">*</span></label>
+                                    @Html.DropDownListFor(m => m.cities.cityID, ViewData["Cities"] as IEnumerable<SelectListItem>, "--Select City*--", new { @class = "awe-select" })
+                                    @Html.ValidationMessageFor(modelItem => @Model.cities.cityID)
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <label>Address<span class="bgColor">*</span></label>                                    
+                                    @Html.TextBoxFor(m => m.Address, new { @class = "field-text", placeholder = "Please Provide Address" })
+                                    @Html.ValidationMessageFor(u => u.Address)
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <label>Post Code<span class="bgColor">*</span></label>                                    
+                                    @Html.TextBoxFor(m => m.Postcode, new { @class = "field-text", placeholder = "Please Provide Post Code" })
+                                    @Html.ValidationMessageFor(u => u.Postcode)
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <label>Available From<span class="bgColor">*</span></label>
+                                    @Html.TextBoxFor(m => m.availablefrom, new { @class = "awe-calendar", placeholder = "Please Provide Availability Date" })
+                                    @Html.ValidationMessageFor(u => u.availablefrom)
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                    <label>Property Images (select multiple images at a time)<span class="bgColor">*</span></label>
+                                    @*<input type="file" multiple class="field-text">*@
+                                    @Html.TextBoxFor(m => m.imagesProp, new { type = "file", @class = "field-text", multiple = "multiple" })
+                                    @Html.ValidationMessageFor(m => m.imagesProp)
+                                </div>
+                                <div class="col-xs-12 col-sm-12">
+                                    <label>Property Description<span class="bgColor">*</span></label>                                    
+                                    @Html.TextAreaFor(m => m.description, new { @class = "field-text", placeholder = "Please Provide Description" })
+                                    @Html.ValidationMessageFor(u => u.description)
+                                </div>
+                            </div>
+                            <div class="checkout_btn">
+                                <button class="awe-btn awe-btn-13 btn-order">Submit</button>
+                            </div>
+                        }                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END / BLOG -->
+<script type="text/javascript" src="~/js/lib/jquery-1.11.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#new").addClass("current-menu-item");
+    });
+</script>

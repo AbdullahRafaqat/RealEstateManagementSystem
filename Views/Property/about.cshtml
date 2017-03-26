@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "about";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+<!-- SUB BANNER -->
+<section class="section-sub-banner bg-9">
+    <div class="awe-overlay"></div>
+    <div class="sub-banner">
+        <div class="container">
+            <div class="text text-center">
+                <h2>ABOUT US</h2>
+                @*<p>Lorem Ipsum is simply dummy text</p>*@
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END / SUB BANNER -->
+<!-- ABOUT -->
+<section class="section-about">
+    <div class="container">
+
+        <div class="about">
+
+            <!-- ITEM -->
+            <div class="about-item">
+
+                <div class="img owl-single">
+                    <img src="~/images/rsz_about1.jpg" alt="">
+                    <img src="~/images/rsz_about2.jpg" alt="">
+                    <img src="~/images/rsz_about3.jpg" alt="">
+                </div>
+
+                <div class="text">
+                    <h2 class="heading">ABOUT Växjö Estate</h2>
+                    <div class="desc">
+                        <p>
+                            <h4> The company</h4>
+                            Växjö Estate is the Sweden's most comprehensive property website, focused on empowering users with the resources they need to make better-informed property decisions. We help consumers both find their next home and research the market by combining hundreds of thousands of property listings with market data, local information and community tools.
+                            <br />
+                            At Växjö Estate we are fans of transparency and everything we do is aimed at making the market more efficient for both property consumers and advertisers alike. Växjö Estate has rapidly become the Sweden’s leading online destination for property consumers to search for homes and do their market research and the favoured online marketing partner for Sweden estate agents, letting agents and property developers.
+
+                            Launched in 2017, Växjö Estate has since been one of the fastest growing websites in the Sweden.
+
+                            Växjö Estate is founded in 2017 and has a highly-experienced management team.                        
+                           
+                        <b></b>
+                         <br>
+                     
+                        </p><br>
+                        <p></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- END / ABOUT -->
+        <!-- HOTEL STATISTICS -->
+<section class="section-statistics bg-10" style="padding:40px 0;">
+
+    <div class="awe-overlay"></div>
+
+    <div class="container">
+        <div class="statistics">
+
+            <h2 class="heading white text-center">Available Properties</h2>
+
+            <div class="statistics_content">
+                <div class="row">
+
+                    <!-- ITEM -->
+                    <div class="col-xs-6 col-md-4">
+                        <div class="statistics_item">
+                            <span class="count"> @ViewBag.Villa</span>
+                            <span>Villas</span>      
+                        </div>                       
+                    </div>
+                    <!-- END ITEM -->
+                    <!-- ITEM -->
+                    <div class="col-xs-6 col-md-4">
+                        <div class="statistics_item">
+                            <span class="count"> @ViewBag.Student</span>
+                            <span>Student Apartment</span>
+                        </div>
+                    </div>
+                    <!-- END ITEM -->
+                    <!-- ITEM -->
+                    <div class="col-xs-6 col-md-4">
+                        <div class="statistics_item">
+                            <span class="count"> @ViewBag.Family</span>
+                            <span>Family Apartment</span>
+                        </div>
+                    </div>
+                    <!-- END ITEM -->
+                    <!-- ITEM -->
+                    @*<div class="col-xs-6 col-md-3">
+                        <div class="statistics_item">
+                            <span class="count">256</span>
+                            <span>MEALS SERVED</span>
+                        </div>
+                    </div>*@
+                    <!-- END ITEM -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END / HOTEL STATISTICS -->
+<script type="text/javascript" src="~/js/lib/jquery-1.11.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#about").addClass("current-menu-item");
+    });
+</script>
